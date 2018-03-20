@@ -3,6 +3,9 @@
 # Prepending Your Git Commit Messages with User Story IDs
 # https://medium.com/@nicklee1/prepending-your-git-commit-messages-with-user-story-ids-3bfea00eab5a
 # https://stackoverflow.com/questions/3525341/can-i-use-a-scripted-commit-template-for-git/3525532#3525532
+# https://git-scm.com/docs/githooks
+# https://stackoverflow.com/questions/3525341/can-i-use-a-scripted-commit-template-for-git/3525532#3525532
+# https://stackoverflow.com/questions/5894946/how-to-add-gits-branch-name-to-the-commit-message
 
 # Include any branches for which you wish to disable this script
 if [ -z "$BRANCHES_TO_SKIP" ]; then
