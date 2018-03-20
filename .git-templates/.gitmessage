@@ -1,0 +1,21 @@
+[Ticket: x] - "[Ticket Title]" [Ticket Description].
+
+# Good commit
+# "Bug 123456: Null-check pres shell so we don't crash when a button removes 
+# itself during its own onclick handler. r=paul, sr=george, a=ringo."
+
+# Bad commit
+# "Bug 123456: crash clicking button on www.example.com"
+
+# TIPS AND TRICKS
+
+# As an author, provide sufficient context (2 paragraphs)
+# As a reviewer, ask don't tell (offer compliments, overcome negativity bias, be positive)
+
+# Ways to frame questions and soften suggestions;
+#  - what do you think about..?
+#  - did you consider...?
+#  - can you clarify...?
+
+# Please watch -> RailsConf 2015 - Implementing a Strong Code-Review Culture 
+# URL: https://www.youtube.com/watch?v=PJjmw9TRB7s
