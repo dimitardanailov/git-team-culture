@@ -17,7 +17,7 @@ BRANCH_NAME=$(git symbolic-ref --short HEAD)
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 
 # Get the template message
-COMMIT_MESSAGE=`cat ~/.gitmessage`
+COMMIT_MESSAGE=`cat /.gitmessage`
 
 # If it isn't excluded, preprend the trimmed branch identifier to the given message
 if [ -n "$BRANCH_NAME" ] &&  ! [[ $BRANCH_EXCLUDED -eq 1 ]]; then

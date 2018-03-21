@@ -78,6 +78,28 @@ feel free to be detailed.
 
 If your team has a commit-message policy, then putting a template for that policy on your system and configuring Git to use it by default can help increase the chance of that policy being followed regularly.
 
+### Symlinks
+
+Linux / Mac OS X
+
+```bash
+ln -s ./git-templates/hooks/prepare-commit-msg .git/hooks/prepare-commit-msg
+ln -s ./git-templates/hooks/.gitmessage .git/hooks/.gitmessage
+```
+
+Windows
+
+Format is: 
+
+```
+New-Item -Path C:\LinkDir -ItemType SymbolicLink -Value F:\RealDir
+```
+
+```
+New-Item -Path .\.git\hooks\prepare-commit-msg -ItemType SymbolicLink -Value .\.git-templates\hooks\prepare-commit-msg
+New-Item -Path .\.git\hooks\.gitmessage -ItemType SymbolicLink -Value .\.git-templates\hooks\.gitmessage
+```
+
 ### Sources
 
 - [Committing rules and responsibilities](https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Committing_Rules_and_Responsibilities)
