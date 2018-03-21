@@ -12,10 +12,25 @@ if [ -z "$BRANCHES_TO_SKIP" ]; then
   BRANCHES_TO_SKIP=(master develop staging test)
 fi
 
-BRANCH_NAME=$(git branch | grep '*' | sed 's/* //') 
+GOOD_COMMIT="# Good commit\n# Bug 123456: Null-check pres shell so we don't crash when a button removes\n# itself during its own onclick handler. r=paul, sr=george, a=ringo."
+BAD_COMMIT="# Bad commit\n# Bug 123456: crash clicking button on www.example.com"
+
+BRANCH_PATH=$(git symbolic-ref -q HEAD) #Somthing like refs/heads/myBranchName
+BRANCH_NAME=${BRANCH_PATH##*/}      #Get text behind the last / of the branch path
+
+#BRANCH_NAME=$(git branch | grep '*' | sed 's/* //') 
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 
 if [ -n "$BRANCH_NAME" ] &&  ! [[ $BRANCH_EXCLUDED -eq 1 ]]; then
-    COMMIT_MESSAGE="$BRANCH_NAME - '[Ticket Title]' [Commit Description]."
-    sed -i "1s/^/$COMMIT_MESSAGE\n/" $1
+    COMMIT_MESSAGE="$BRANCH_NAME - '[Ticket Title]'\n\n[Commit Description]."
+    sed -i "1s/^/#  - can you clarify...?\n/" $1 
+    sed -i "1s/^/#  - did you consider...?\n/" $1 
+    sed -i "1s/^/#  - what do you think about..?\n/" $1 
+    sed -i "1s/^/# Ways to frame questions and soften suggestions;\n/" $1 
+    sed -i "1s/^/# As a reviewer, ask don't tell (offer compliments, overcome negativity bias, be positive)\n\n/" $1   
+    sed -i "1s/^/# As an author, provide sufficient context (2 paragraphs)\n/" $1    
+    sed -i "1s/^/# TIPS AND TRICKS\n\n/" $1
+    sed -i "1s/^/$BAD_COMMIT\n\n/" $1
+    sed -i "1s/^/$GOOD_COMMIT\n\n/" $1
+    sed -i "1s/^/$COMMIT_MESSAGE\n\n/" $1
 fi
