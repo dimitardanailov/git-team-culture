@@ -83,8 +83,7 @@ If your team has a commit-message policy, then putting a template for that polic
 Linux / Mac OS X
 
 ```bash
-ln -s ./git-templates/hooks/prepare-commit-msg .git/hooks/prepare-commit-msg
-ln -s ./git-templates/hooks/.gitmessage .git/hooks/.gitmessage
+ln -s ./.git-templates/hooks/prepare-commit-msg .git/hooks/prepare-commit-msg
 ```
 
 Windows
@@ -97,7 +96,6 @@ New-Item -Path C:\LinkDir -ItemType SymbolicLink -Value F:\RealDir
 
 ```
 New-Item -Path .\.git\hooks\prepare-commit-msg -ItemType SymbolicLink -Value .\.git-templates\hooks\prepare-commit-msg
-New-Item -Path .\.git\hooks\.gitmessage -ItemType SymbolicLink -Value .\.git-templates\hooks\.gitmessage
 ```
 
 ### Sources
