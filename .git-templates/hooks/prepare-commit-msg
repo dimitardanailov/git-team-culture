@@ -22,7 +22,7 @@ BRANCH_NAME=${BRANCH_PATH##*/}      #Get text behind the last / of the branch pa
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 
 if [ -n "$BRANCH_NAME" ] &&  ! [[ $BRANCH_EXCLUDED -eq 1 ]]; then
-    COMMIT_MESSAGE="$BRANCH_NAME - '[Ticket Title]'\n\n[Commit Description]."
+    COMMIT_MESSAGE="type: $BRANCH_NAME - '\n[Ticket Title]'\n[Commit Description]."
     sed -i "1s/^/#  - can you clarify...?\n/" $1 
     sed -i "1s/^/#  - did you consider...?\n/" $1 
     sed -i "1s/^/#  - what do you think about..?\n/" $1 
