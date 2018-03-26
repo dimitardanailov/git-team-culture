@@ -78,6 +78,14 @@ feel free to be detailed.
 
 If your team has a commit-message policy, then putting a template for that policy on your system and configuring Git to use it by default can help increase the chance of that policy being followed regularly.
 
+### Copy
+
+Windows
+
+```
+Copy-Item "[Destination]\.git-templates\hooks\prepare-commit-msg" -Destination .\.git\hooks\prepare-commit-msg
+```
+
 ### Symlinks
 
 Linux / Mac OS X
