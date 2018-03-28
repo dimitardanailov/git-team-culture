@@ -12,7 +12,7 @@ module.exports = {
   // parserPreset: './parser-preset',
   rules: {
     // Header
-    'header-min-length': [2, 'always', 20],
+    'header-min-length': [2, 'always', 6],
     'header-max-length': [2, 'always', 120],
 
     // Body section
@@ -26,7 +26,8 @@ module.exports = {
     'footer-max-length': [2, 'always', 500],
 
     // Subject - TicketInfo
-    'subject-empty': [2, 'always'],
+    'subject-empty': [2, 'never'],
+    'subject-full-stop': [2, 'never'],
 
     // Type
 		'type-case': [2, 'always', 'lower-case'],
