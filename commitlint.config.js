@@ -36,9 +36,6 @@ module.exports = {
 			2,
 			'always',
 			[
-        // 🖼  style: when improving the style featues
-        'style',
-
 				// 🎨 :art: when improving the format/structure of the code
 				'art',
 

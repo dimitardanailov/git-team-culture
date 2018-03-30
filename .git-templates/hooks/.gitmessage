@@ -1,8 +1,12 @@
-[Ticket: x] - "[Ticket Title]" [Ticket Description].
+type: [Ticket: x]
+'[Ticket Title]'
+[Ticket Description]
 
 # Good commit
-# "Bug 123456: Null-check pres shell so we don't crash when a button removes 
-# itself during its own onclick handler. r=paul, sr=george, a=ringo."
+# art: Bug 123456
+# 'Shell: Please check null-check'
+# Null-check pres shell so we don't crash when a button removes 
+# itself during its own onclick handler.
 
 # Bad commit
 # "Bug 123456: crash clicking button on www.example.com"
