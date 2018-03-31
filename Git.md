@@ -1,32 +1,5 @@
 # Committing rules and responsibilities
 
-### Checkin comment
-The checkin comment for the change you push should include the bug number and a clear explanation of the fix. Please say what changes are made, not what problem was fixed, e.g.:
-
-```bash
-# Good Commit
-type: [Jira Ticket]
-"[Ticket Title]" 
-[Ticket Description]
-```
-
-```bash
-# Bad commit
-Bug 123456 - crash clicking button on www.example.com
-```
-
-Why the commit is bad: 
-- Commit doesn't have type
-- Commit doesn't have title
-- Commit doesn't have footer is too short.
-
-If you are not the author of the code, use `git config --global` to specify the actual author in the Git changeset:
-
-```bash
-$ git config --global user.name "John Doe"
-$ git config --global user.email johndoe@example.com
-```
-
 ### Commit message restrictions
 
 The purpose of these new restrictions, implemented via a git hook, is to prevent commit messages that do not have a type, ticket number, ticket title and ticket description.
@@ -66,32 +39,37 @@ The default types are:
 
 I'm using the same git commit types like Atom: [https://www.npmjs.com/package/conventional-changelog-atom](https://www.npmjs.com/package/conventional-changelog-atom)
 
-### Copy
+### Checkin comment
+The checkin comment for the change you push should include:
+- type
+- ticket number
+- ticket title
+- and a explanation of your work.
 
-Windows
-
-```
-Copy-Item "[Destination]\.git-templates\hooks\prepare-commit-msg" -Destination .\.git\hooks\prepare-commit-msg
-```
-
-### Symlinks
-
-Linux / Mac OS X
+Please say what changes are made, not what problem was fixed, e.g.:
 
 ```bash
-ln -s ./.git-templates/hooks/prepare-commit-msg .git/hooks/prepare-commit-msg
+# Good Commit
+type: [Jira Ticket]
+"[Ticket Title]" 
+[Ticket Description]
 ```
 
-Windows
-
-Format is: 
-
-```
-New-Item -Path C:\LinkDir -ItemType SymbolicLink -Value F:\RealDir
+```bash
+# Bad commit
+Bug 123456 - crash clicking button on www.example.com
 ```
 
-```
-New-Item -Path .\.git\hooks\prepare-commit-msg -ItemType SymbolicLink -Value .\.git-templates\hooks\prepare-commit-msg
+Why the commit is bad: 
+- Commit doesn't have type
+- Commit doesn't have title
+- Commit doesn't have footer is too short.
+
+If you are not the author of the code, use `git config --global` to specify the actual author in the Git changeset:
+
+```bash
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
 ```
 
 ### Sources
