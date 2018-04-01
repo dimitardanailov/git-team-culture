@@ -12,17 +12,21 @@ if [ -z "$BRANCHES_TO_SKIP" ]; then
   BRANCHES_TO_SKIP=(master develop staging test)
 fi
 
-GOOD_COMMIT="# Good commit\n# Bug 123456: Null-check pres shell so we don't crash when a button removes\n# itself during its own onclick handler. r=paul, sr=george, a=ringo."
+GOOD_COMMIT="# Good commit\n# type: ticket number\nTicket title\nTicket Description"
 BAD_COMMIT="# Bad commit\n# Bug 123456: crash clicking button on www.example.com"
 
-BRANCH_PATH=$(git symbolic-ref -q HEAD) #Somthing like refs/heads/myBranchName
-BRANCH_NAME=${BRANCH_PATH##*/}      #Get text behind the last / of the branch path
+#Somthing like refs/heads/myBranchName
+BRANCH_PATH=$(git symbolic-ref -q HEAD) 
 
-#BRANCH_NAME=$(git branch | grep '*' | sed 's/* //') 
+#Get text behind the last / of the branch path
+BRANCH_NAME=${BRANCH_PATH##*/} 
+
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
 
 if [ -n "$BRANCH_NAME" ] &&  ! [[ $BRANCH_EXCLUDED -eq 1 ]]; then
     COMMIT_MESSAGE="type: $BRANCH_NAME - '\n[Ticket Title]'\n[Commit Description]."
+    
+    # ouput
     sed -i "1s/^/#  - can you clarify...?\n/" $1 
     sed -i "1s/^/#  - did you consider...?\n/" $1 
     sed -i "1s/^/#  - what do you think about..?\n/" $1 
